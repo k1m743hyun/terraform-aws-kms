@@ -1,0 +1,32 @@
+name: Release terraform-aws-kms
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.tf'
+
+jobs:
+  workflow:
+    name: Release
+    runs-on: ubuntu-latest
+
+    if: github.repository_owner == 'thkim0022'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          semantic_version: 18.0.0
+          extra_plugins: |
+            @semantic-release/changelog@6.0.0
+            @semantic-release/git@10.0.0
+            conventional-changelog-conventionalcommits@4.6.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
