@@ -1,9 +1,11 @@
-name: Release terraform-aws-kms
+name: Release
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+      - master
     paths:
       - '**/*.tf'
       - '.github/workflows/release.yaml'
