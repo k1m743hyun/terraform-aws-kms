@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '**/*.tf'
+      - '.github/workflows/release.yml'
 
 jobs:
   workflow:
@@ -29,4 +30,4 @@ jobs:
             @semantic-release/git@10.0.0
             conventional-changelog-conventionalcommits@4.6.3
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
