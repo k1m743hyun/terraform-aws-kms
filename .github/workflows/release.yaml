@@ -22,7 +22,7 @@ jobs:
       - name: Release
         uses: actions/create-release@v1
         with:
-          tag_name: ${{ steps.extract_version_name.outputs.version }}
-          release_name: ${{ steps.extract_version_name.outputs.version }}
+          tag_name: v${{ steps.extract_version_name.outputs.version }}
+          release_name: v${{ steps.extract_version_name.outputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
