@@ -14,8 +14,4 @@ resource "aws_kms_key" "this" {
  resource "aws_kms_alias" "this" {
    name          = "alias/${lower(var.alias_name)}"
    target_key_id = aws_kms_key.this.key_id
-
-   depends_on = [
-     aws_kms_key.this
-   ]
  }
