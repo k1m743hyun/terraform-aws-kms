@@ -9,8 +9,11 @@ on:
       - '**/*.tf'
 
 jobs:
-  build:
+  release:
+    name: Release
     runs-on: ubuntu-latest
+
+    if: github.repository_owner == 'thkim0022'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
